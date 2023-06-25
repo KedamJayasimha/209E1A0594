@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Number Management Service</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Number Management Service</h1>
+
+    <form>
+      <label for="url1">URL 1:</label>
+      <input type="text" id="url1" name="url1" placeholder="Enter URL">
+
+      <label for="url2">URL 2:</label>
+      <input type="text" id="url2" name="url2" placeholder="Enter URL">
+
+      <!-- Add more URL input fields as needed -->
+
+      <button type="button" onclick="getNumbers()">Get Numbers</button>
+    </form>
+
+    <div id="result">
+      <!-- Result of the API call will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code
+    function getNumbers() {
+      var urls = [];
+      var urlElements = document.querySelectorAll('input[name^="url"]');
+      for (var i = 0; i < urlElements.length; i++) {
+        var url = urlElements[i].value.trim();
+        if (url !== '') {
+          urls.push(url);
+        }
+      }
+
+      if (urls.length > 0) {
+        var resultDiv = document.getElementById('result');
+        resultDiv.textContent = 'Fetching numbers...';
+
+        // Perform API call to retrieve numbers based on the URLs
+        // Replace this with your actual API call implementation
+
+        // Simulating API call with a delay
+        setTimeout(function() {
+          var numbers = [1, 2, 3, 5, 8, 13];
+          resultDiv.textContent = 'Numbers: ' + numbers.join(', ');
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
